@@ -1,8 +1,9 @@
+# this file is enabled when NODE_ENV === 'development' in package.json
 db:
   host: 'localhost'
   username: 'postgres'
   password: 'postgres'
-  syncronize: true
+  synchronize: true
 
 jwt:
   secret: 'topSecret51'

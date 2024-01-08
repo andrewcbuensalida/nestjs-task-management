@@ -1,3 +1,7 @@
+https://github.com/msichterman/nestjs-task-management/tree/master
+https://www.youtube.com/watch?v=aQG8O1B4B5w&list=PLIrsP8dft12A85u3t0i8l4GJufbNDKw5m
+
+
 To create a module
 `nest g module <name of module>`
 To create controller. --no-spec is for not generating test files
