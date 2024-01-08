@@ -28,7 +28,7 @@ export class User extends BaseEntity {
   tasks: Task[];
 
   async validatePassword(password: string): Promise<boolean> {
-    const hash = await bcrypt.hash(password, this.salt);
-    return hash === this.password;
+    const hash = await bcrypt.hash(password, this.salt); // password is plaintext and comes from user that's trying to login
+    return hash === this.password; // this.password is hashed form and comes from db 
   }
 }

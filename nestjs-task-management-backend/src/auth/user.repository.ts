@@ -14,7 +14,7 @@ export class UserRepository extends Repository<User> {
 
     const user = new User();
     user.username = username;
-    user.salt = await bcrypt.genSalt();
+    user.salt = await bcrypt.genSalt(); // Not sure if we need to save the salt to the database because salt should be in the hash already
     user.password = await this.hashPassword(password, user.salt);
 
     try {
@@ -42,6 +42,7 @@ export class UserRepository extends Repository<User> {
     }
   }
 
+  // why have a method for this? It's only used in one place
   private async hashPassword(password: string, salt: string): Promise<string> {
     return bcrypt.hash(password, salt);
   }

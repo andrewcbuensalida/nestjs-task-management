@@ -12,7 +12,6 @@ export class TaskRepository extends Repository<Task> {
   // Since it extends Repository<Task>, can use this.createQueryBuilder that interacts with task table.
   private logger = new Logger('TaskRepository');
   async getTasks(filterDto: GetTasksFilterDto, user: User): Promise<Task[]> {
-    console.log('this is this: ', this);
     const { status, search } = filterDto;
     const query = this.createQueryBuilder('task'); // use this when query is more complex
 

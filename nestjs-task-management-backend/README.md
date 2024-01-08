@@ -9,6 +9,18 @@ To create controller. --no-spec is for not generating test files
 To create service
 `nest g service <name of service> --no-spec`
 
+
+TODO Try reinstalling postgres
+
+
+
+
+
+
+
+
+
+
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
 </p>
