@@ -6,7 +6,7 @@ import { GetTasksFilterDto } from './dto/get-tasks-filter.dto';
 import { User } from '../auth/user.entity';
 import { Logger, InternalServerErrorException } from '@nestjs/common';
 
-// Repositories connect to the database
+// Repositories connect to the database. Repositories manage entities (aka db tables or documents)
 @EntityRepository(Task)
 export class TaskRepository extends Repository<Task> {
   // Since it extends Repository<Task>, can use this.createQueryBuilder that interacts with task table.

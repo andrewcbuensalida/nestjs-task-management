@@ -19,7 +19,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
 
-  async validate(payload: JwtPayload): Promise<User> {
+  async validate(payload: JwtPayload): Promise<User> { // payload from jwt token here is already verified
     const { username } = payload;
     const user = await this.userRepository.findOne({ username });
 
@@ -27,6 +27,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException();
     }
 
-    return user;
+    return user; // whatever is returned is injected in req wherever there's a guard
   }
 }

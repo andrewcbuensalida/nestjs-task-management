@@ -25,7 +25,7 @@ import { User } from '../auth/user.entity';
 
 // Controller uses pipes to process request, then routes http requests to respective service which has the logic and calls the respective repository which connects to db
 @Controller('tasks')
-@UseGuards(AuthGuard()) // This blocks the user unless they pass the jwt.strategy
+@UseGuards(AuthGuard()) // This blocks the user unless they pass the jwt.strategy. Because there's a guard, jwt.strategy validate injects into req whatever it returns.
 export class TasksController {
   private logger = new Logger('TasksController');
 

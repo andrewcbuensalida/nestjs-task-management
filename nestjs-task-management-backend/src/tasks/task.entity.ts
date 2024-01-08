@@ -23,7 +23,8 @@ export class Task extends BaseEntity {
   @Column()
   status: TaskStatus;
 
-  @ManyToOne((type) => User, (user) => user.tasks, { eager: false })
+  // 1st argument is what type user is. 2nd argument is how to relate it to the user entity.
+  @ManyToOne(type => User, user => user.tasks, { eager: false })
   user: User;
 
   @Column()

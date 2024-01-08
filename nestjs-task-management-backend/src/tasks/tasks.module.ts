@@ -9,7 +9,7 @@ import { AuthModule } from '../auth/auth.module';
 @Module({
   imports: [
     TypeOrmModule.forFeature([TaskRepository]), // TaskRepository has the queries to the db
-    AuthModule,
+    AuthModule, // anything the AuthModule exports can be used here
   ],
   controllers: [TasksController],
   providers: [TasksService], // TasksService calls the TaskRepository
