@@ -11,7 +11,7 @@ export class AuthService {
   constructor(
     @InjectRepository(UserRepository)
     private userRepository: UserRepository,
-    private jwtService: JwtService,
+    private jwtService: JwtService, // can have this here because JwtModule is in imports in auth.module.ts
   ) {}
 
   async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
