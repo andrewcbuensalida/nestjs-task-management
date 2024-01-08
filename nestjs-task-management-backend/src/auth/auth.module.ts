@@ -16,7 +16,7 @@ const jwtConfig:any = config.get('jwt');
     JwtModule.register({ // because of this, can use jwtService in auth.service.ts
       secret: process.env.JWT_SECRET || jwtConfig.secret,
       signOptions: {
-        expiresIn: 3600, // 3600 is 60 minutes
+        expiresIn: jwtConfig.expiresIn, // 3600 is 60 minutes
       },
     }),
     TypeOrmModule.forFeature([UserRepository]),

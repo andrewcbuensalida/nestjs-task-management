@@ -19,7 +19,7 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   host: process.env.RDS_HOSTNAME || dbConfig.host,
   database: process.env.RDS_DB_NAME || dbConfig.database,
   entities: ['**/*.entity{.ts,.js}'],
-  synchronize: process.env.TYPEORM_SYNC || dbConfig.synchronize, // because synchronize is true, it automatically creates the tables
+  synchronize: process.env.TYPEORM_SYNC || dbConfig.synchronize, // because synchronize is true, it automatically creates the tables/ TYPEORM_SYNC is a toggle so you you can set it to true for the first time in production so it creates the database for you.
 };
 
 console.log(`Example typeOrmConfig: `, typeOrmConfig);

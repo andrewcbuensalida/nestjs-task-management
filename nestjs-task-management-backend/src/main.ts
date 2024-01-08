@@ -19,6 +19,6 @@ async function bootstrap() {
 
   const port = process.env.PORT || serverConfig.port;
   await app.listen(port);
-  logger.log(`Application listening on port ${port}`); // log can also be verbose, warn, debug, error
+  logger.log(`Application listening on port ${port}`); // log can also be verbose, warn, debug, error which just changes the color in the cli
 }
 bootstrap();
