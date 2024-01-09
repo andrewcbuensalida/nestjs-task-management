@@ -9,8 +9,14 @@ To create controller. --no-spec is for not generating test files
 To create service
 `nest g service <name of service> --no-spec`
 
+=========================================================
 
-TODO Try reinstalling postgres
+Deploy to aws. 
+https://medium.com/@devlexus/deploying-a-nestjs-application-to-aws-a-step-by-step-guide-92404d215118
+
+When doing `npm run build`, throws many lines of error that say `asserts this is NodePath`
+Error went away after `npm install typescript@latest -D`
+This creates the dist folder with compiled js files.
 
 
 
@@ -20,6 +26,12 @@ TODO Try reinstalling postgres
 
 
 
+
+
+
+
+
+============================================================
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>

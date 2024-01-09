@@ -4,16 +4,18 @@ import { AppModule } from './app.module';
 import * as config from 'config';
 
 console.log(`Application starting...`);
+console.log(`Example process.env.NODE_ENV: `, process.env.NODE_ENV)
 async function bootstrap() {
-  
-  const serverConfig:any = config.get('server');
+  const serverConfig: any = config.get('server');
   const logger = new Logger('bootstrap'); // bootstrap can be anything. It's just the context.
   const app = await NestFactory.create(AppModule); // TODO this is causing console.log not to work after this line
-  
+
   if (process.env.NODE_ENV === 'development') {
     app.enableCors();
   } else {
-    app.enableCors({ origin: serverConfig.origin });
+    app.enableCors({
+      origin: process.env.CLIENT_ORIGIN || serverConfig.origin,
+    });
     logger.log(`Accepting requests from origin "${serverConfig.origin}"`);
   }
 
