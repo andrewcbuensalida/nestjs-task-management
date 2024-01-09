@@ -8,7 +8,7 @@ console.log(`Example process.env.NODE_ENV: `, process.env.NODE_ENV)
 async function bootstrap() {
   const serverConfig: any = config.get('server');
   const logger = new Logger('bootstrap'); // bootstrap can be anything. It's just the context.
-  const app = await NestFactory.create(AppModule); // TODO this is causing console.log not to work after this line
+  const app = await NestFactory.create(AppModule); 
 
   if (process.env.NODE_ENV === 'development') {
     app.enableCors();
