@@ -18,13 +18,25 @@ When doing `npm run build`, throws many lines of error that say `asserts this is
 Error went away after `npm install typescript@latest -D`
 This creates the dist folder with compiled js files.
 
+Have to zip all the files in the repo, then upload to elastic beanstalk.
 
+Had to change start to node dist/main.js in package.json so elastic beanstalk will know how to start. If not, it will throw a 502 not found nginx error.
 
+In elastic beanstalk, have to set environment variables to this:
 
+CLIENT_ORIGIN	75.80.39.194  <-- This is my local ip
+JWT_SECRET	jkhhjhhh888  <-- anything
+NODE_ENV	production
+PORT	5000
+RDS_DB_NAME	taskmanagement
+RDS_HOSTNAME	awseb-e-2gupyujmke-stack-awsebrdsdatabase-4ztughoh8mmz.cfwn9prp85ta.us-west-1.rds.amazonaws.com  <-- this comes from RDS endpoint that gets created
+RDS_PASSWORD	myNestPassword1
+RDS_PORT	3306   <-- default for mysql
+RDS_USERNAME	myNestUser1
+TYPEORM_SYNC	true
 
-
-
-
+Postman request will look something like
+http://nest2-env.eba-fchuwtt2.us-west-1.elasticbeanstalk.com/auth/signup
 
 
 
