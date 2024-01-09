@@ -38,8 +38,7 @@ TYPEORM_SYNC	true
 Postman request will look something like
 http://nest2-env.eba-fchuwtt2.us-west-1.elasticbeanstalk.com/auth/signup
 
-
-
+`node dist/main.js` will not work without node_modules.
 
 
 
