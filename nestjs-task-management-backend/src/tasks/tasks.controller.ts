@@ -25,7 +25,7 @@ import { User } from '../auth/user.entity';
 
 // Controller uses pipes to process request, then routes http requests to respective service which has the logic and calls the respective repository which connects to db
 @Controller('tasks')
-@UseGuards(AuthGuard()) // This blocks the user unless they pass the jwt.strategy. Because there's a guard, jwt.strategy validate injects into req whatever it returns.
+@UseGuards(AuthGuard()) // This blocks the user unless they pass the jwt.strategy. Because there's a guard, jwt.strategy validate injects into req whatever it returns. Guards are executed after all middleware, but before any interceptor or pipe.
 export class TasksController {
   private logger = new Logger('TasksController');
 
@@ -33,7 +33,7 @@ export class TasksController {
 
   @Get()
   getTasks(
-    @Query(ValidationPipe) filterDto: GetTasksFilterDto, // ValidationPipe enables the use of get-tasks-filter-dto.ts class-validator?
+    @Query(ValidationPipe) filterDto: GetTasksFilterDto, // ValidationPipe enables the use of get-tasks-filter-dto.ts class-validator? Why is this in the parameter decorator but in createTask it's in the method level. pipes either transform or validate.
     @GetUser() user: User, // why not @Body decorator? This gets the user from req which gets it from auth jwt.strategy magic
   ): Promise<Task[]> {
     this.logger.verbose(

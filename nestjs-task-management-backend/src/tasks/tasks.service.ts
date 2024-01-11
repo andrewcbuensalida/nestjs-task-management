@@ -7,7 +7,7 @@ import { Task } from './task.entity';
 import { TaskStatus } from './task-status.enum';
 import { User } from '../auth/user.entity';
 
-@Injectable()
+@Injectable() // providers, aka services and strategies, seem to have @Injectable
 export class TasksService {
   constructor(
     @InjectRepository(TaskRepository) // InjectRepository enables methods to use this.taskRepository

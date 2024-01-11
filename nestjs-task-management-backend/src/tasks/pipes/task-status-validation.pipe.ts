@@ -8,6 +8,7 @@ export class TaskStatusValidationPipe implements PipeTransform {
     TaskStatus.DONE,
   ];
 
+  // every pipe must implement the transform method
   transform(value: any) {
     value = value.toUpperCase();
 
